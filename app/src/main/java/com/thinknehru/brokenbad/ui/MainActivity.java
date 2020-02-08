@@ -7,9 +7,12 @@ import android.widget.Button;
 
 import com.thinknehru.brokenbad.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-//    @BindView(R.id.viewCharactersButton)
-//    Button mViewCharactersButton;
+    @BindView(R.id.viewCharactersButton)
+    Button mViewCharactersButton;
 
 
     @Override
@@ -17,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
 
     }
 }
