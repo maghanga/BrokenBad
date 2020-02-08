@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:text="Broken Bad"
-        android:textColor="@color/colorTextIcons"/>
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/login"
+        android:scaleType="centerCrop" />
 
     <Button
         android:id="@+id/button"
@@ -18,7 +18,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:text="Get Characters"
+        android:text="View Characters"
         android:textColor="@color/colorTextIcons" />
 
 </RelativeLayout>
