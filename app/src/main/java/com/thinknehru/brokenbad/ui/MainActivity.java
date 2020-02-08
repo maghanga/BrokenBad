@@ -2,7 +2,9 @@ package com.thinknehru.brokenbad.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.thinknehru.brokenbad.R;
@@ -10,7 +12,7 @@ import com.thinknehru.brokenbad.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.viewCharactersButton)
     Button mViewCharactersButton;
 
@@ -22,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+    }
+
+    @Override
+    public  void onClick(View v){
+        Intent intent = new Intent(MainActivity.this, CharacterListActivity.class);
+        startActivity(intent);
     }
 }
 
