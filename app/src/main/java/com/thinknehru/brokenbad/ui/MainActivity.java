@@ -1,8 +1,10 @@
-package com.thinknehru.brokenbad;
+package com.thinknehru.brokenbad.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.thinknehru.brokenbad.R;
 
 public class MainActivity extends AppCompatActivity {
 
