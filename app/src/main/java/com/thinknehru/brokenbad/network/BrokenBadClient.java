@@ -4,6 +4,9 @@ import android.app.DownloadManager;
 
 import java.io.IOException;
 
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+
 public class BrokenBadClient {
     private static BrokenBadApi getClient(){
         if(retrofit == null){
