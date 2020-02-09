@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public  void onClick(View v){
-        Intent intent = new Intent(MainActivity.this, CharacterListActivity.class);
-        startActivity(intent);
+        if(v == mViewCharactersButton) {
+            Intent intent = new Intent(MainActivity.this, CharacterListActivity.class);
+            startActivity(intent);
+        }
     }
 }
 
