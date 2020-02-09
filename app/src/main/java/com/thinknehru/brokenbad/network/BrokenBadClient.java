@@ -15,12 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.thinknehru.brokenbad.models.Constants.YELP_BASE_URL;
 
 public class BrokenBadClient {
-    private static BrokenBadApi getClient(){
+    public static BrokenBadApi getClient(){
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(YELP_BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
-        return retrofit.create( BrokenBadApi.class);
+        return retrofit.create(BrokenBadApi.class);
     }
 }
