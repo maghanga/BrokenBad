@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface BrokenBadApi {
-    @GET("/characters")
+    @GET("characters")
     Call<BreakingBadCharacter> getCharacters(
             @Query("name") String name
     );

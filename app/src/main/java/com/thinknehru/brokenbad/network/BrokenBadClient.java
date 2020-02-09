@@ -4,8 +4,15 @@ import android.app.DownloadManager;
 
 import java.io.IOException;
 
+
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.thinknehru.brokenbad.models.Constants.YELP_BASE_URL;
 
 public class BrokenBadClient {
     private static BrokenBadApi getClient(){
@@ -15,7 +22,7 @@ public class BrokenBadClient {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
                             DownloadManager.Request newRequest  = chain.request().newBuilder()
-                                    .addHeader("Authorization", YELP_API_KEY)
+                                    .addHeader("Authorization",)
                                     .build();
                             return chain.proceed(newRequest);
                         }
@@ -29,6 +36,6 @@ public class BrokenBadClient {
                     .build();
         }
 
-        return retrofit.create(YelpApi.class);
+        return retrofit.create(BrokenBadApi.class);
     }
 }
