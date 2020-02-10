@@ -1,18 +1,10 @@
-package com.thinknehru.brokenbad.network;
-
-import android.app.DownloadManager;
-
-import java.io.IOException;
+package com.thinknehru.BrokenBad.network;
 
 
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.thinknehru.brokenbad.models.Constants.YELP_BASE_URL;
+import static com.thinknehru.BrokenBad.models.Constants.YELP_BASE_URL;
 
 public class BrokenBadClient {
     public static BrokenBadApi getClient(){

@@ -1,4 +1,4 @@
-package com.thinknehru.brokenbad;
+package com.thinknehru.BrokenBad;
 
 import android.content.Context;
 

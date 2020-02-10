@@ -1,4 +1,4 @@
-package com.thinknehru.brokenbad.ui;
+package com.thinknehru.BrokenBad.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.thinknehru.brokenbad.R;
+import com.thinknehru.BrokenBad.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
