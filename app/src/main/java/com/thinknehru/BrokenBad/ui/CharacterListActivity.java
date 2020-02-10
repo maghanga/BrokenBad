@@ -1,6 +1,5 @@
 package com.thinknehru.BrokenBad.ui;
 
-import android.icu.util.ULocale;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +18,6 @@ import com.thinknehru.BrokenBad.network.BrokenBadApi;
 import com.thinknehru.BrokenBad.network.BrokenBadClient;
 
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +45,7 @@ public class CharacterListActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showRestaurants() {
+    private void showCharacters() {
         mListView.setVisibility(View.VISIBLE);
     }
 
@@ -67,7 +65,7 @@ public class CharacterListActivity extends AppCompatActivity {
 
 
 
-//        Log.v("mymessage", String.valueOf(call.request().url()));
+        Log.v("mymessage", String.valueOf(call.request().url()));
 
         call.enqueue(new Callback<BrokenBadCharacter>() {
             @Override
@@ -75,7 +73,7 @@ public class CharacterListActivity extends AppCompatActivity {
 
                 hideProgressBar();
 
-               if(response.isSuccessful()){
+               if(response.isSuccessful()) {
                    List<Character> characterList = response.body().getCharacters();
                    String[] characters = new String[characterList.size()];
 
@@ -85,15 +83,20 @@ public class CharacterListActivity extends AppCompatActivity {
                    }
 
                    ArrayAdapter adapter = new BrokenBadArrayAdapter(CharacterListActivity.this, android.R.layout.simple_list_item_1, characters);
+                   mListView.setAdapter(adapter);
 
+                   showCharacters();
 
-
+               } else {
+                   showUnsuccessfulMessage();
                }
             }
 
             @Override
-            public void onFailure(Call<Character> call, Throwable t) {
-
+            public void onFailure(Call<BrokenBadCharacter> call, Throwable t) {
+                Log.e(TAG, "onFailure: ",t );
+                hideProgressBar();
+                showFailureMessage();
             }
         });
 
