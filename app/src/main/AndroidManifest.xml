@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thinknehru.BrokenBad">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.thinknehru.BrokenBad.ui.CharacterListActivity"></activity>
-        <activity android:name="com.thinknehru.BrokenBad.ui.MainActivity">
+        <activity android:name=".ui.CharacterDetailActivity"></activity>
+        <activity android:name=".ui.CharacterListActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
