@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        mViewCharactersButton.setOnClickListener(this);
 
     }
 
