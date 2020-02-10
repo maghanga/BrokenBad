@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.CharacterDetailActivity"></activity>
-        <activity android:name=".ui.CharacterListActivity" />
+        <activity android:name=".ui.CharacterListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.thinknehru.BrokenBad.ui.MainActivity">
+            </meta-data></activity>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
