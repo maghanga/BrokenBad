@@ -60,21 +60,21 @@ public class CharacterListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         BrokenBadApi client = BrokenBadClient.getClient();
-        Call<BrokenBadCharacter> call = client.getCharacters();
+        Call<List<Character>> call = client.getCharacters();
 
 
 
 
         Log.v("mymessage", String.valueOf(call.request().url()));
 
-        call.enqueue(new Callback<BrokenBadCharacter>() {
+        call.enqueue(new Callback<List<Character>>() {
             @Override
-            public void onResponse(Call<BrokenBadCharacter> call, Response<BrokenBadCharacter> response) {
+            public void onResponse(Call<List<Character>> call, Response<List<Character>> response) {
 
                 hideProgressBar();
 
                if(response.isSuccessful()) {
-                   List<Character> characterList = response.body().getCharacters();
+                   List<Character> characterList = response.body();
                    String[] characters = new String[characterList.size()];
 
 
@@ -93,7 +93,7 @@ public class CharacterListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BrokenBadCharacter> call, Throwable t) {
+            public void onFailure(Call<List<Character>> call, Throwable t) {
                 Log.e(TAG, "onFailure: ",t );
                 hideProgressBar();
                 showFailureMessage();
