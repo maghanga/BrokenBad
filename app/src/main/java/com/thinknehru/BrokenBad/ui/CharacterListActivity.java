@@ -3,13 +3,16 @@ package com.thinknehru.BrokenBad.ui;
 import android.icu.util.ULocale;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.thinknehru.BrokenBad.R;
+import com.thinknehru.BrokenBad.adapters.BrokenBadArrayAdapter;
 import com.thinknehru.BrokenBad.models.BrokenBadCharacter;
 import com.thinknehru.BrokenBad.models.Character;
 import com.thinknehru.BrokenBad.network.BrokenBadApi;
@@ -27,14 +30,30 @@ import retrofit2.Response;
 public class CharacterListActivity extends AppCompatActivity {
     private static final String TAG = CharacterListActivity.class.getSimpleName();
 
-    @BindView(R.id.resultTextView)
-    TextView mResultTextView;
-//    @BindView(R.id.progressBar)
-//    ProgressBar mProgressBar;
-    @BindView(R.id.listView)
-    ListView mListView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar)
+    ProgressBar mProgressBar;
+    @BindView(R.id.listView) ListView mListView;
 
     public List<Character> characters;
+
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showRestaurants() {
+        mListView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +72,9 @@ public class CharacterListActivity extends AppCompatActivity {
         call.enqueue(new Callback<BrokenBadCharacter>() {
             @Override
             public void onResponse(Call<BrokenBadCharacter> call, Response<BrokenBadCharacter> response) {
+
+                hideProgressBar();
+
                if(response.isSuccessful()){
                    List<Character> characterList = response.body().getCharacters();
                    String[] characters = new String[characterList.size()];
@@ -63,6 +85,8 @@ public class CharacterListActivity extends AppCompatActivity {
                    }
 
                    ArrayAdapter adapter = new BrokenBadArrayAdapter(CharacterListActivity.this, android.R.layout.simple_list_item_1, characters);
+
+
 
                }
             }
