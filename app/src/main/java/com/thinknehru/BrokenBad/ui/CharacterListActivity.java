@@ -1,5 +1,6 @@
 package com.thinknehru.BrokenBad.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,9 +10,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.adapters.BrokenBadArrayAdapter;
+import com.thinknehru.BrokenBad.adapters.CharacterListAdapter;
 import com.thinknehru.BrokenBad.models.BrokenBadCharacter;
 import com.thinknehru.BrokenBad.models.Character;
 import com.thinknehru.BrokenBad.network.BrokenBadApi;
@@ -31,27 +35,13 @@ public class CharacterListActivity extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
-    @BindView(R.id.listView) ListView mListView;
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+    private CharacterListAdapter mAdapter;
 
     public List<Character> characters;
 
-    private void showFailureMessage() {
-        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-    }
 
-    private void showUnsuccessfulMessage() {
-        mErrorTextView.setText("Something went wrong. Please try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-    }
-
-    private void showCharacters() {
-        mListView.setVisibility(View.VISIBLE);
-    }
-
-    private void hideProgressBar() {
-        mProgressBar.setVisibility(View.GONE);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +49,11 @@ public class CharacterListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_character_list);
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+
+
         BrokenBadApi client = BrokenBadClient.getClient();
+
         Call<List<Character>> call = client.getCharacters();
 
 
@@ -74,16 +68,14 @@ public class CharacterListActivity extends AppCompatActivity {
                 hideProgressBar();
 
                if(response.isSuccessful()) {
-                   List<Character> characterList = response.body();
-                   String[] characters = new String[characterList.size()];
+                   characters = response.body();
+                   mAdapter = new CharacterListAdapter(characters, CharacterListActivity.this);
+                   mRecyclerView.setAdapter(mAdapter);
+                   RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CharacterListActivity.this);
+                   new LinearLayoutManager(CharacterListActivity.this);
+                   mRecyclerView.setLayoutManager(layoutManager);
+                   mRecyclerView.setHasFixedSize(true);
 
-
-                   for(int i = 0; i < characters.length; i++){
-                       characters[i] = characterList.get(i).getName();
-                   }
-
-                   ArrayAdapter adapter = new BrokenBadArrayAdapter(CharacterListActivity.this, android.R.layout.simple_list_item_1, characters);
-                   mListView.setAdapter(adapter);
 
                    showCharacters();
 
@@ -100,7 +92,23 @@ public class CharacterListActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
 
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showCharacters() {
+        mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
     }
 }
