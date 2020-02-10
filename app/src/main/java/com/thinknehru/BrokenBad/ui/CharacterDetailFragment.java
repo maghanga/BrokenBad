@@ -50,7 +50,7 @@ public class CharacterDetailFragment extends Fragment {
     public static CharacterDetailFragment newInstance(Character character) {
             CharacterDetailFragment characterDetailFragment = new CharacterDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("restaurant", Parcels.wrap(character));
+        args.putParcelable("character", Parcels.wrap(character));
         characterDetailFragment.setArguments(args);
         return characterDetailFragment;
     }
@@ -70,6 +70,7 @@ public class CharacterDetailFragment extends Fragment {
 
         Picasso.get().load(mCharacter.getImg()).into(mImageLabel);
 
+
         List<String> occupations = mCharacter.getOccupation();
         List<Integer> appearances = mCharacter.getAppearance();
 
@@ -78,8 +79,8 @@ public class CharacterDetailFragment extends Fragment {
         mNicknameLabel.setText(mCharacter.getNickname());
         mBirthdayLabel.setText(mCharacter.getBirthday());
         mStatusLabel.setText(mCharacter.getStatus());
-        mOccupationLabel.setText(android.text.TextUtils.join(", ", occupations));
-        mAppearanceLabel.setText(android.text.TextUtils.join(", ", appearances));
+        mOccupationLabel.setText(android.text.TextUtils.join(" | ", occupations));
+        mAppearanceLabel.setText(android.text.TextUtils.join(" | ", appearances));
 
 
         return view;

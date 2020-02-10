@@ -42,9 +42,9 @@ public class Character implements Serializable
     @SerializedName("category")
     @Expose
     private String category;
-    @SerializedName("better_call_saul_appearance")
-    @Expose
-    private List<Object> betterCallSaulAppearance = null;
+//    @SerializedName("better_call_saul_appearance")
+//    @Expose
+//    private List<Object> betterCallSaulAppearance = null;
     private final static long serialVersionUID = 3418774020772032484L;
 
     /**
@@ -80,7 +80,7 @@ public class Character implements Serializable
         this.appearance = appearance;
         this.portrayed = portrayed;
         this.category = category;
-        this.betterCallSaulAppearance = betterCallSaulAppearance;
+//        this.betterCallSaulAppearance = betterCallSaulAppearance;
     }
 
     public Integer getCharId() {
@@ -163,13 +163,13 @@ public class Character implements Serializable
         this.category = category;
     }
 
-    public List<Object> getBetterCallSaulAppearance() {
-        return betterCallSaulAppearance;
-    }
-
-    public void setBetterCallSaulAppearance(List<Object> betterCallSaulAppearance) {
-        this.betterCallSaulAppearance = betterCallSaulAppearance;
-    }
+//    public List<Object> getBetterCallSaulAppearance() {
+//        return betterCallSaulAppearance;
+//    }
+//
+//    public void setBetterCallSaulAppearance(List<Object> betterCallSaulAppearance) {
+//        this.betterCallSaulAppearance = betterCallSaulAppearance;
+//    }
 
     @Override
     public String toString(){
