@@ -1,6 +1,8 @@
 package com.thinknehru.BrokenBad.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.models.Character;
+import com.thinknehru.BrokenBad.ui.CharacterDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -45,7 +50,7 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
         return mCharacters.size();
     }
 
-    public class CharacterViewHolder extends RecyclerView.ViewHolder {
+    public class CharacterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.characterImageView)
         ImageView mCharacterImageView;
@@ -60,6 +65,17 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v){
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, CharacterDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("characters", Parcels.wrap(mCharacters));
+            mContext.startActivity(intent);
         }
 
         public void bindCharacter(Character character){
@@ -68,7 +84,8 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
             mNicknameTextView.setText(character.getNickname());
             mStatusTextView.setText(character.getStatus());
 
-
         }
+
+
     }
 }
