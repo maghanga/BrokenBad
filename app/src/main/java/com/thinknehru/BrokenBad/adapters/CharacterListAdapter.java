@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.models.Character;
 
@@ -51,7 +52,7 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
         @BindView(R.id.characterNameTextView) TextView mNameTextView;
         @BindView(R.id.nicknameTextView)
         TextView mNicknameTextView;
-        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
+        @BindView(R.id.statusTextView) TextView mStatusTextView;
 
         private Context mContext;
 
@@ -62,9 +63,10 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdap
         }
 
         public void bindCharacter(Character character){
+            Picasso.get().load(character.getImg()).into(mCharacterImageView);
             mNameTextView.setText(character.getName());
             mNicknameTextView.setText(character.getNickname());
-            mCategoryTextView.setText(character.getCategory());
+            mStatusTextView.setText(character.getStatus());
 
 
         }
