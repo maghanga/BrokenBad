@@ -32,6 +32,10 @@ Broken Bad is an android application whereby a user can get to view all the Brea
 Download And install Android studio with android SDK. Gradle is the tool used to
 build and run the code. Preferred IDE is Android Studio IDEA.
 
+## API
+* Base URL is defined in the Constants model class
+* No API key or authentication
+
 
 ## Running the tests
 
