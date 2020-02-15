@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.moringaschool.myrestaurants.ui.LoginActivity"
+    tools:context="com.thinknehru.BrokenBad.ui.LoginActivity"
     android:background="@color/colorPrimary">
 
     <LinearLayout
@@ -61,7 +61,7 @@
             android:textColor="@color/colorTextIcons"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:text="Don't have an account? Sign up here!"
+            android:text="Don't have an account? Click here to sign up ..."
             android:id="@+id/registerTextView"
             android:layout_gravity="center_horizontal" />
 
@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Log in"
         android:textColor="@color/colorPrimaryLight"
         android:textSize="30dp"
         android:textStyle="bold"
