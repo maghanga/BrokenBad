@@ -11,6 +11,6 @@ public class FavouriteCharactersListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favourite_characters_list);
+        setContentView(R.layout.activity_character_list);
     }
 }
