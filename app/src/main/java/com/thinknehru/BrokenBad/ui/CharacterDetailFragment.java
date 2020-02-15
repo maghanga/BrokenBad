@@ -8,13 +8,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.models.Character;
+import com.thinknehru.BrokenBad.models.Constants;
 
 import org.parceler.Parcels;
 
@@ -28,7 +33,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CharacterDetailFragment extends Fragment {
+public class CharacterDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.characterImageView)
     ImageView mImageLabel;
     @BindView(R.id.characterNameTextView)
@@ -39,7 +44,8 @@ public class CharacterDetailFragment extends Fragment {
     @BindView(R.id.birthdayTextView) TextView mBirthdayLabel;
     @BindView(R.id.nicknameTextView) TextView mNicknameLabel;
     @BindView(R.id. statusTextView) TextView mStatusLabel;
-    @BindView(R.id.saveCharacterButton) TextView mSaveCharacterButton;
+    @BindView(R.id.saveCharacterButton)
+    Button mSaveCharacterButton;
 
     private Character mCharacter;
 
@@ -70,6 +76,7 @@ public class CharacterDetailFragment extends Fragment {
 
         Picasso.get().load(mCharacter.getImg()).into(mImageLabel);
 
+        mSaveCharacterButton.setOnClickListener(this);
 
         List<String> occupations = mCharacter.getOccupation();
         List<Integer> appearances = mCharacter.getAppearance();
@@ -84,6 +91,17 @@ public class CharacterDetailFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mSaveCharacterButton) {
+            DatabaseReference characterRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_CHARACTERS);
+            characterRef.push().setValue(mCharacter);
+            Toast.makeText(getContext(), "Added to favourites", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
