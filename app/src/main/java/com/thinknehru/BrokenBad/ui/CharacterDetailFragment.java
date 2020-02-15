@@ -86,8 +86,8 @@ public class CharacterDetailFragment extends Fragment implements View.OnClickLis
         mNicknameLabel.setText(mCharacter.getNickname());
         mBirthdayLabel.setText(mCharacter.getBirthday());
         mStatusLabel.setText(mCharacter.getStatus());
-        mOccupationLabel.setText(android.text.TextUtils.join(" | ", occupations));
-        mAppearanceLabel.setText(android.text.TextUtils.join(" | ", appearances));
+        mOccupationLabel.setText(android.text.TextUtils.join(" + ", occupations));
+        mAppearanceLabel.setText(android.text.TextUtils.join(" - ", appearances));
 
 
         return view;
