@@ -48,24 +48,24 @@ public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder impleme
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    restaurants.add(snapshot.getValue(Restaurant.class));
-                }
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    restaurants.add(snapshot.getValue(Restaurant.class));
+//                }
+//
+//                int itemPosition = getLayoutPosition();
+//
+//                Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
+//                intent.putExtra("position", itemPosition + "");
+//                intent.putExtra("restaurants", Parcels.wrap(restaurants));
+//
+//                mContext.startActivity(intent);
+//            }
 
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(restaurants));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
         });
     }
 }
