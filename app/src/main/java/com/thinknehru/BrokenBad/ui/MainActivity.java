@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.viewCharactersButton)
     Button mViewCharactersButton;
+    @BindView(R.id.favouriteCharactersButton) Button mFavouriteCharactersButton;
 
 
     @Override
