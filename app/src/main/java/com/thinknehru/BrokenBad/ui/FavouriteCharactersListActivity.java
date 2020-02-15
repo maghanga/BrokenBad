@@ -7,9 +7,11 @@ import android.os.Bundle;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.adapters.FirebaseCharacterViewHolder;
 import com.thinknehru.BrokenBad.models.Character;
+import com.thinknehru.BrokenBad.models.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,5 +30,7 @@ public class FavouriteCharactersListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_list);
         ButterKnife.bind(this);
+
+        mCharacterReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS);
     }
 }
