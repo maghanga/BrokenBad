@@ -7,9 +7,15 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.models.Character;
+import com.thinknehru.BrokenBad.models.Constants;
+
+import java.util.ArrayList;
 
 public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -38,8 +44,8 @@ public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder impleme
 
     @Override
     public void onClick(View view) {
-        final ArrayList<Restaurant> restaurants = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
+        final ArrayList<Character> restaurants = new ArrayList<>();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
