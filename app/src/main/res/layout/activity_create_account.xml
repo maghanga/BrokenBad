@@ -89,7 +89,7 @@
             android:textColor="@color/colorTextIcons"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:text="Got an account? Log in here!"
+            android:text="Got an account? Click here to log in ..."
             android:id="@+id/loginTextView"
             android:layout_gravity="center_horizontal" />
 
@@ -98,7 +98,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="Sign Up"
         android:textColor="@color/colorPrimaryLight"
         android:textSize="30dp"
         android:textStyle="bold"
