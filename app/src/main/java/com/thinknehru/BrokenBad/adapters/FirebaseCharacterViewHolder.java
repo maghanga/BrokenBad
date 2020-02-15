@@ -1,12 +1,15 @@
 package com.thinknehru.BrokenBad.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -14,6 +17,9 @@ import com.squareup.picasso.Picasso;
 import com.thinknehru.BrokenBad.R;
 import com.thinknehru.BrokenBad.models.Character;
 import com.thinknehru.BrokenBad.models.Constants;
+import com.thinknehru.BrokenBad.ui.CharacterDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -39,33 +45,33 @@ public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder impleme
 
         nameTextView.setText(character.getName());
         nicknameTextView.setText(character.getNickname());
-        statusTextView.setText("Rating: " + character.getStatus());
+        statusTextView.setText(character.getStatus());
     }
 
     @Override
     public void onClick(View view) {
-        final ArrayList<Character> restaurants = new ArrayList<>();
+        final ArrayList<Character> characters = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    restaurants.add(snapshot.getValue(Restaurant.class));
-//                }
-//
-//                int itemPosition = getLayoutPosition();
-//
-//                Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-//                intent.putExtra("position", itemPosition + "");
-//                intent.putExtra("restaurants", Parcels.wrap(restaurants));
-//
-//                mContext.startActivity(intent);
-//            }
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    characters.add(snapshot.getValue(Character.class));
+                }
 
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
+                int itemPosition = getLayoutPosition();
+
+                Intent intent = new Intent(mContext, CharacterDetailActivity.class);
+                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("restaurants", Parcels.wrap(characters));
+
+                mContext.startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
         });
     }
 }
