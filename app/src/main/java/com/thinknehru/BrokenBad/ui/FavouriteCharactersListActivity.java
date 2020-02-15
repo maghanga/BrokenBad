@@ -71,4 +71,12 @@ public class FavouriteCharactersListActivity extends AppCompatActivity {
         super.onStart();
         mFirebaseAdapter.startListening();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mFirebaseAdapter!= null) {
+            mFirebaseAdapter.stopListening();
+        }
+    }
 }
