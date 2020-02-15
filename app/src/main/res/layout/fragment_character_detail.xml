@@ -133,7 +133,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save Character"
+                android:text="Favourite Character"
                 android:id="@+id/saveCharacterButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
