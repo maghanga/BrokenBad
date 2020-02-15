@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 
 @Parcel(Parcel.Serialization.BEAN)
-public class Character implements Serializable
+public class Character
 {
 
     @SerializedName("char_id")

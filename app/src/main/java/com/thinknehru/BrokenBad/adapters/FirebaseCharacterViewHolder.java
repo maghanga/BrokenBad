@@ -22,6 +22,7 @@ import com.thinknehru.BrokenBad.ui.CharacterDetailActivity;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -50,7 +51,7 @@ public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder impleme
 
     @Override
     public void onClick(View view) {
-        final ArrayList<Character> characters = new ArrayList<>();
+        final List<Character> characters = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 

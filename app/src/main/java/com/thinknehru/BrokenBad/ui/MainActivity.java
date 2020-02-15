@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, CharacterListActivity.class);
             startActivity(intent);
         }
+
+        if (v == mFavouriteCharactersButton) {
+            Intent intent = new Intent(MainActivity.this, FavouriteCharactersListActivity.class);
+            startActivity(intent);
+        }
     }
 }
 

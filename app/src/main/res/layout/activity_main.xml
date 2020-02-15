@@ -27,20 +27,15 @@
 
     <Button
         android:id="@+id/viewCharactersButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/favouriteCharactersButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="142dp"
-        android:layout_marginLeft="142dp"
-        android:layout_marginBottom="108dp"
         android:background="@color/colorAccent"
-        android:gravity="center_vertical"
         android:text="View Characters"
         android:textColor="@color/colorTextIcons"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>
