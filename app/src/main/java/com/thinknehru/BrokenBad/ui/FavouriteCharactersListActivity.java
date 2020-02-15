@@ -64,4 +64,11 @@ public class FavouriteCharactersListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mFirebaseAdapter.startListening();
+    }
 }
