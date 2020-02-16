@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 /gradle.properties
+/gradlew
+/gradlew.bat
+/settings.gradle
+/gradle/wrapper
