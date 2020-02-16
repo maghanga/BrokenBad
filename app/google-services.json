@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1000525993744",
+    "firebase_url": "https://brokenbad-4e25c.firebaseio.com",
+    "project_id": "brokenbad-4e25c",
+    "storage_bucket": "brokenbad-4e25c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000525993744:android:072f119a4d34cfc0d63795",
+        "android_client_info": {
+          "package_name": "com.thinknehru.brokenbad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000525993744-pc27iua3v77b4ns2t74lohstvie8m55m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thinknehru.brokenbad",
+            "certificate_hash": "fe25d446cc3e9735b050682371c856a2fa227799"
+          }
+        },
+        {
+          "client_id": "1000525993744-5kbhkll7edvr7q8qpu0qjilpdi7cknh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVVRlogQxb3wJ4MSO8e0rQfzyrVL3nQKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000525993744-5kbhkll7edvr7q8qpu0qjilpdi7cknh0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
