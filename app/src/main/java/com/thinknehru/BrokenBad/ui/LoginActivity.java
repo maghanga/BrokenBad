@@ -32,6 +32,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
+        mAuth = FirebaseAuth.getInstance();
+
         mRegisterTextView.setOnClickListener(this);
     }
 
