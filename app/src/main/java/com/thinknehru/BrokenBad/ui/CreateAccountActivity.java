@@ -63,24 +63,24 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
     }
 
-//    private void createNewUser() {
-//        final String name = mNameEditText.getText().toString().trim();
-//        final String email = mEmailEditText.getText().toString().trim();
-//        String password = mPasswordEditText.getText().toString().trim();
-//        String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
-//
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            Log.d(TAG, "Authentication successful");
-//                        } else {
-//                            Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
+    private void createNewUser() {
+        final String name = mNameEditText.getText().toString().trim();
+        final String email = mEmailEditText.getText().toString().trim();
+        String password = mPasswordEditText.getText().toString().trim();
+        String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Authentication successful");
+                        } else {
+                            Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
 
 }
