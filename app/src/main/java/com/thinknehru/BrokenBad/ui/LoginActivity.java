@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    public static final String TAG = LoginActivity.class.getSimpleName();
 
     @BindView(R.id.passwordLoginButton)
     Button mPasswordLoginButton;
