@@ -29,6 +29,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
+    private String mName;
 
     @BindView(R.id.createUserButton)
     Button mCreateUserButton;
@@ -80,6 +81,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
 
     public void createNewUser() {
+        mName = mNameEditText.getText().toString().trim();
         final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
