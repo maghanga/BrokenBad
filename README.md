@@ -5,8 +5,10 @@ Broken Bad is an android application whereby a user can get to view all the Brea
 ### BDD
 |feature     |Description      |
 |------------|------------------
-|Start page | Logo and welcome page|
+|Start page | Login page|
+|Successful sign up to welcome page |If no registered account, navigation to sign up page|
 |See list of characters|Shows the characters of the show|
+|Add characters to favourite list| View favourite characters|
 |See particular character|shows the details of a particular character|
 
 
@@ -22,6 +24,7 @@ Broken Bad is an android application whereby a user can get to view all the Brea
 * Picasso
 * Parceler
 * ButterKnife
+* Firebase
 
 ### Prerequisites
 
