@@ -65,6 +65,7 @@ public class CharacterDetailFragment extends Fragment implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mCharacter = Parcels.unwrap(getArguments().getParcelable("character"));
+        setHasOptionsMenu(true);
     }
 
 
