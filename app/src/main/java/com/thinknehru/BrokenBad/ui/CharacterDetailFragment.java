@@ -1,10 +1,12 @@
 package com.thinknehru.BrokenBad.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,6 +53,7 @@ public class CharacterDetailFragment extends Fragment implements View.OnClickLis
     Button mSaveCharacterButton;
 
     private Character mCharacter;
+    private String mSource;
 
     public CharacterDetailFragment() {
         // Required empty public constructor
@@ -68,17 +71,15 @@ public class CharacterDetailFragment extends Fragment implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mCharacter = Parcels.unwrap(getArguments().getParcelable("character"));
+        mSource = getArguments().getString(Constants.KEY_SOURCE);
         setHasOptionsMenu(true);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        if (mSource.equals(Constants.SOURCE_SAVED)) {
-            inflater.inflate(R.menu.menu_photo, menu);
-        } else {
-            inflater.inflate(R.menu.menu_main, menu);
-        }
+        inflater.inflate(R.menu.menu_photo, menu);
+
     }
 
     @Override
@@ -90,6 +91,14 @@ public class CharacterDetailFragment extends Fragment implements View.OnClickLis
                 break;
         }
         return false;
+    }
+
+
+    public void onLaunchCamera() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
 
