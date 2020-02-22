@@ -36,6 +36,7 @@ public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder impleme
         itemView.setOnClickListener(this);
     }
 
+
     public void bindCharacter(Character character) {
         ImageView characterImageView = (ImageView) mView.findViewById(R.id.characterImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.characterNameTextView);
