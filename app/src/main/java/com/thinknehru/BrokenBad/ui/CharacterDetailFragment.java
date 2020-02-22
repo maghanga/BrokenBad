@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -29,6 +31,7 @@ import com.thinknehru.BrokenBad.models.Constants;
 
 import org.parceler.Parcels;
 
+import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Array;
 import java.util.List;
 
@@ -138,6 +141,18 @@ public class CharacterDetailFragment extends Fragment implements View.OnClickLis
             mImageLabel.setImageBitmap(imageBitmap);
             //      encodeBitmapAndSaveToFirebase(imageBitmap);
         }
+    }
+
+    public void encodeBitmapAndSaveToFirebase(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        String imageEncoded = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_CHARACTERS)
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child(mCharacter.getCharId())
+                .child("imageUrl");
+        ref.setValue(imageEncoded);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class Character
 
     @SerializedName("char_id")
     @Expose
-    private Integer charId;
+    private String charId;
     @SerializedName("name")
     @Expose
     private String name;
@@ -68,7 +68,7 @@ public class Character
      * @param category
      * @param status
      */
-    public Character(Integer charId, String name, String birthday, List<String> occupation, String img, String status, String nickname, List<Integer> appearance, String portrayed, String category, List<Object> betterCallSaulAppearance) {
+    public Character(String charId, String name, String birthday, List<String> occupation, String img, String status, String nickname, List<Integer> appearance, String portrayed, String category, List<Object> betterCallSaulAppearance) {
         super();
         this.charId = charId;
         this.name = name;
@@ -83,11 +83,11 @@ public class Character
 //        this.betterCallSaulAppearance = betterCallSaulAppearance;
     }
 
-    public Integer getCharId() {
-        return charId;
+    public String getCharId() {
+        return charId.toString();
     }
 
-    public void setCharId(Integer charId) {
+    public void setCharId(String charId) {
         this.charId = charId;
     }
 
