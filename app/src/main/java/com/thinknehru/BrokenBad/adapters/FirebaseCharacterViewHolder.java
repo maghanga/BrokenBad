@@ -66,7 +66,7 @@ public class FirebaseCharacterViewHolder extends RecyclerView.ViewHolder impleme
 
                 Intent intent = new Intent(mContext, CharacterDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(characters));
+                intent.putExtra("characters", Parcels.wrap(characters));
 
                 mContext.startActivity(intent);
             }
