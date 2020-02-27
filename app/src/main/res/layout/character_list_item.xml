@@ -1,31 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp">
 
-    <ImageView
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:id="@+id/characterImageView"
-        android:src="@drawable/walter"
-        android:scaleType="centerCrop"/>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:background="#ffffff"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:padding="2dp"
+            android:id="@+id/characterImageView"
+            android:src="@drawable/walter"/>
 
         <TextView
+            android:id="@+id/characterNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/characterNameTextView"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:layout_toRightOf="@+id/characterImageView"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
             android:text="Character Name"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,22 +35,14 @@
             android:text="Nickname"
             android:id="@+id/nicknameTextView"
             android:layout_below="@+id/characterNameTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:layout_toRightOf="@+id/characterImageView"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
             android:textStyle="italic"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status"
-                android:id="@+id/statusTextView"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
-        </RelativeLayout>
-    </LinearLayout>
-</LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

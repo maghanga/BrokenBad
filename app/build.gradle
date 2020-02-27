@@ -71,11 +71,10 @@ android {
         implementation 'com.firebaseui:firebase-ui-storage:6.2.0'
         implementation 'com.google.firebase:firebase-auth:19.2.0'
         implementation "androidx.cardview:cardview:1.0.0"
+        implementation 'androidx.appcompat:appcompat:+'
+        implementation 'androidx.constraintlayout:constraintlayout:+'
 
     }
 }
 
-dependencies {
-    implementation 'androidx.appcompat:appcompat:+'
-    implementation 'androidx.constraintlayout:constraintlayout:+'
-}
+
